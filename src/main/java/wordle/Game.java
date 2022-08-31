@@ -34,10 +34,12 @@ public class Game {
 				
 				if (newGuess.matches(secretWord)) {
 					System.out.println(String.format(Messages.VICTORY, secretWord));
+					break;
 				}
 				
 				if (guesses.size() >= MAX_GUESSES) {
 					System.out.println(String.format(Messages.LOSS, secretWord));
+					break;
 				}
 			}
 			
@@ -49,8 +51,6 @@ public class Game {
 				playAgain = false;
 			}
 		}
-		
-
 	}
 	
 	public static String getUserInput() {
@@ -59,6 +59,7 @@ public class Game {
 	
 	public static boolean queryUser(String query) {
 		System.out.println(query);
-		return getUserInput().equals("y") || getUserInput().equals("yes");
+		String response = getUserInput();
+		return response.equals("y") || response.equals("yes");
 	}
 }
